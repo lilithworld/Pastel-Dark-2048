@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Pastel & Dark 2048</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap');
+      
+      body {
+        font-family: 'Nunito', sans-serif;
+        overscroll-behavior: none;
+        background-color: #030712; /* Default dark to match dark theme initially */
+      }
+      /* Prevent scrolling while swiping on mobile */
+      .touch-none {
+        touch-action: none;
+      }
+
+      @keyframes tile-pop {
+        0% { transform: scale(0); opacity: 0; }
+        80% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes tile-merge {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.18); }
+        100% { transform: scale(1); }
+      }
+
+      @keyframes paw-float {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.03; }
+        50% { transform: translateY(-10px) rotate(5deg); opacity: 0.08; }
+        100% { transform: translateY(0) rotate(0deg); opacity: 0.03; }
+      }
+
+      .animate-tile-pop {
+        animation: tile-pop 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      .animate-tile-merge {
+        animation: tile-merge 200ms ease-in-out forwards;
+      }
+
+      .animate-paw-float {
+        animation: paw-float 6s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
